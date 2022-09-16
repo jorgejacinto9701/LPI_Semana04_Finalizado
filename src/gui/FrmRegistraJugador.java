@@ -62,7 +62,7 @@ public class FrmRegistraJugador extends JFrame implements ActionListener
 		txtApellido.setBounds(200, 130, 120, 25);
 		getContentPane().add(txtApellido);
 		
-		lblFecha = new JLabel("Fecha nacimiento");
+		lblFecha = new JLabel("Fecha");
 		lblFecha.setBounds(30, 180, 120, 25);
 		getContentPane().add(lblFecha);		
 		
@@ -118,6 +118,7 @@ public class FrmRegistraJugador extends JFrame implements ActionListener
 			obj.setNombre(nom);
 			obj.setApellido(ape);
 			obj.setFechaNacimiento(Conversiones.toFecha(fec));
+			obj.setEstado(1);
 			
 			JugadorModel model = new JugadorModel();
 			int salida = model.insertaJugador(obj);

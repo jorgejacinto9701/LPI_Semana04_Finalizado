@@ -20,11 +20,12 @@ public class CampeonatoModel {
 			conn = MySqlDBConexion.getConexion();
 			
 			//2 Se prepara el SQL
-			String sql = "insert into campeonato value(null,?,?,curtime(),1)";
+			String sql = "insert into campeonato value(null,?,?,curtime(),?)";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, obj.getNombre());
 			pstm.setInt(2, obj.getAnnio());
-			
+			pstm.setInt(3, obj.getEstado());
+						
 			log.info(">>> " + pstm);
 			
 			//3 Ejecutamos a la base de datos

@@ -20,12 +20,13 @@ public class JugadorModel {
 			conn = MySqlDBConexion.getConexion();
 
 			// 2 Se prepara el SQL
-			String sql = "insert into jugador value(null,?,?,?,curtime(),1)";
+			String sql = "insert into jugador value(null,?,?,?,curtime(),?)";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, obj.getNombre());
 			pstm.setString(2, obj.getApellido());
 			pstm.setDate(3, obj.getFechaNacimiento());
-
+			pstm.setInt(4, obj.getEstado());
+			
 			log.info(">>> " + pstm);
 
 			// 3 Ejecutamos a la base de datos

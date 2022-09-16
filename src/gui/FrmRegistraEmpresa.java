@@ -154,6 +154,8 @@ public class FrmRegistraEmpresa extends JFrame implements ActionListener, KeyLis
 					obj.setRuc(ruc);
 					obj.setFechaCreacion(Conversiones.toFecha(fec));
 					obj.setSede(sed);
+					obj.setEstado(1);
+					
 					EmpresaModel model = new EmpresaModel();
 					int salida = model.insertaEmpresa(obj);
 					if (salida>0) {
