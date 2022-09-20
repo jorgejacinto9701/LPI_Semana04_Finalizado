@@ -1,4 +1,4 @@
-package gui;
+package gui.relacionada;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -22,16 +22,15 @@ public class FrmRegistraClub extends JFrame implements ActionListener
 	 */
 	private static final long serialVersionUID = 1L;
 	//Variables globales
-	JLabel lblTitulo, lblNombre, lblAuspiciador, lblFecha;
+	JLabel lblTitulo, lblNombre, lblFecha;
 	JTextField  txtNombre, txtFecha;
 	JButton btnRegistrar;
-	private JComboBox<String> cboAuspiciador;
 	private JComboBox<String> cboPais;
 	
 	//Constructor
 	public FrmRegistraClub(){
 		setTitle("Registro de Jugador");
-		setBounds(10,10,544,350);
+		setBounds(10,10,544,329);
 		getContentPane().setLayout(null);
 		
 		lblTitulo = new JLabel("Registro de Club");
@@ -50,10 +49,6 @@ public class FrmRegistraClub extends JFrame implements ActionListener
 		txtNombre = new JTextField();
 		txtNombre.setBounds(200, 80, 221, 25);
 		getContentPane().add(txtNombre);
-
-		lblAuspiciador = new JLabel("Auspiciador");
-		lblAuspiciador.setBounds(30, 193, 120, 25);
-		getContentPane().add(lblAuspiciador);
 		
 		lblFecha = new JLabel("Fecha creaci\u00F3n");
 		lblFecha.setBounds(30, 116, 120, 25);
@@ -66,22 +61,14 @@ public class FrmRegistraClub extends JFrame implements ActionListener
 		btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(this);
 		btnRegistrar.setIcon(new ImageIcon(FrmRegistraClub.class.getResource("/iconos/save.gif")));
-		btnRegistrar.setBounds(218,250,120,33);
+		btnRegistrar.setBounds(210,212,120,33);
 		getContentPane().add(btnRegistrar);
-		
-		cboAuspiciador = new JComboBox<String>();
-		cboAuspiciador.setBounds(200, 194, 284, 22);
-		getContentPane().add(cboAuspiciador);
 		
 		JLabel lblPas = new JLabel("Pa\u00EDs");
 		lblPas.setBounds(30, 157, 120, 25);
 		getContentPane().add(lblPas);
 		
 		cboPais = new JComboBox<String>();
-		cboPais.addItem("[Seleccione]");
-		cboPais.addItem("Ecuador");
-		cboPais.addItem("Perú");
-		cboPais.addItem("Argentina");
 		cboPais.setBounds(200, 158, 221, 22);
 		getContentPane().add(cboPais);
 

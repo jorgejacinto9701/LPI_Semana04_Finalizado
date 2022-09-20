@@ -1,4 +1,4 @@
-package gui;
+package gui.relacionada;
 
 import java.util.ResourceBundle;
 

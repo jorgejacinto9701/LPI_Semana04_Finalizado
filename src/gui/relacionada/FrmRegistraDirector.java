@@ -1,4 +1,4 @@
-package gui;
+package gui.relacionada;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -27,15 +27,13 @@ public class FrmRegistraDirector extends JFrame implements ActionListener
 	/**
 	 * 
 	 */
-	
-	private ResourceBundle rb = ResourceBundle.getBundle("combo");
-	
 	private static final long serialVersionUID = 1L;
 	//Variables globales
 	JLabel lblTitulo, lblNombre, lblGrado, lblFecha;
 	JTextField  txtNombre, txtFecha;
 	JButton btnRegistrar;
 	private JComboBoxBD cboGrado;
+	private ResourceBundle rb = ResourceBundle.getBundle("combo");
 	
 	//Constructor
 	public FrmRegistraDirector(){
@@ -111,13 +109,13 @@ public class FrmRegistraDirector extends JFrame implements ActionListener
 	protected void actionPerformedBtnRegistrarJButton(ActionEvent e) {
 			String nom = txtNombre.getText().trim();
 			String fec = txtFecha.getText().trim();
-			int index = cboGrado.getSelectedIndex();
+			int indexGrado = cboGrado.getSelectedIndex();
 			
 			if (!nom.matches(Validaciones.TEXTO)) {
 				mensaje("El nombre es de 2 a 20 caracteres");
 			}else if (!fec.matches(Validaciones.FECHA)) {
 				mensaje("La fecha tiene formato YYYY-MM-dd");
-			}else if (index ==0) {
+			}else if (indexGrado ==0) {
 				mensaje("Seleccione un grado");
 			}else {
 				String grado = cboGrado.getSelectedItem().toString();
@@ -132,17 +130,30 @@ public class FrmRegistraDirector extends JFrame implements ActionListener
 				objDirector.setGrado(objGrado);
 				
 				DirectorModel model = new DirectorModel();
-				int s = model.insertaDirector(objDirector);
-				
-				if (s > 0) {
+				int salida = model.insertaDirector(objDirector);
+				if (salida > 0) {
 					mensaje("Se insertó correctamente");
 				}else {
 					mensaje("Error en el Registro");
 				}
-						
+				
 			}
+		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
